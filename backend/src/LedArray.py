@@ -20,9 +20,13 @@ class LedArray:
 
         
     def SetSolidColor(self, namedColor):
-        if namedColor in self._array:
+        if namedColor in self.colors:
             self._array.fill(self.colors[namedColor])
+
+            print("Color found")
+            return True
         else:
+            print("Color not found!")
             return False            
 
     def SetIntensity(self, intensity):
