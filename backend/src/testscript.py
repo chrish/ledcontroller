@@ -5,7 +5,7 @@ import cmd
 import board
 import LedArray
 
-la = LedArray.LedArray("Skaplys", board.SCK, board.MOSI, 104)
+la = LedArray.LedArray("Skaplys", board.SCK, board.MOSI, 104, 0xFFFFFF, 0.8)
 
 
 col = input("Which color?")

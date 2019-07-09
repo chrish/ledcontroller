@@ -18,12 +18,18 @@ class LedArray:
 
         self._array = adafruit_dotstar.DotStar(clockpin, datapin, number_of_leds, brightness=DefaultIntensity)
 
+    def SetIndividualColor(self, idx, color):
+        self._array[idx] = color
         
-    def SetSolidColor(self, namedColor):
-        if namedColor in self.colors:
-            self._array.fill(self.colors[namedColor])
+    def SetSolidColor(self, color):
+        print(color)
+        if color in self.colors:
+            self._array.fill(self.colors[color])
 
             print("Color found")
+            return True
+        elif int(color, 16):
+            self._array.fill(int(color, 16))
             return True
         else:
             print("Color not found!")
