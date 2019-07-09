@@ -16,7 +16,10 @@ class LedArray:
         DefaultColor = def_color
         DefaultIntensity = def_intensity
 
-        self._array = adafruit_dotstar.DotStar(clockpin, datapin, number_of_leds, brightness=DefaultIntensity)
+        self._array = adafruit_dotstar.DotStar(clockpin, datapin, number_of_leds, brightness=DefaultIntensity, auto_write = False)
+
+    def Update(self):
+        self._array.show()
 
     def SetIndividualColor(self, idx, color):
         self._array[idx] = color

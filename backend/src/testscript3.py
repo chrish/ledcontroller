@@ -11,7 +11,7 @@ numpixels = 104
 
 la = LedArray.LedArray("Skaplys", board.SCK, board.MOSI, numpixels)
 
-ck = ColorKeeper.ColorKeeper(100)
+ck = ColorKeeper.ColorKeeper(1)
 
 ckarr = []
 
@@ -30,7 +30,9 @@ while True:
         #print(i, col)
 
         la.SetIndividualColor(i, int(col.replace("#", "0x"), 16))
-        #time.sleep(0.1)
+    time.sleep(0.1)
+    
+    la.Update()
 
         
 
