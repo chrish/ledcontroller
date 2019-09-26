@@ -30,7 +30,7 @@ while True:
         #print(i, col)
 
         la.SetIndividualColor(i, int(col.replace("#", "0x"), 16))
-    time.sleep(0.1)
+    #time.sleep(0.1)
     
     la.Update()
 

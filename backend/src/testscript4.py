@@ -7,12 +7,13 @@ import time
 import LedArray
 import ColorKeeper
 
-numpixels = 104
+numpixels = 1
 
-la = LedArray.LedArray("Skaplys", board.SCK, board.MOSI, numpixels,  0xff0000, 1)
+la = LedArray.LedArray("Skaplys",  board.SCK, board.MOSI, numpixels,  0xff0000)
 
 ck = ColorKeeper.ColorKeeper(5)
 
+# Regnbue
 
 while True:
     la.SetSolidColor(ck.GetNextColor().replace("#", "0x"))
