@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body onload="init();">
+        <div class="slidecontainer">
+            <input type="range" min="0" max="255" value="255" class="slider" id="sr" onchange="sliderChange()">
+            <input type="range" min="0" max="255" value="255" class="slider" id="sg" onchange="sliderChange()">
+            <input type="range" min="0" max="255" value="255" class="slider" id="sb" onchange="sliderChange()">
+          </div>
+
+
+        <h1>Available colors:</h1>
+        <div id="colors">
+
+        </div>
+
+        <script src="js/ledcontroller.js" async defer></script>
+    </body>
+
+</html>

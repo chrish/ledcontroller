@@ -1,0 +1,26 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+div.colorbox{
+    width: 6vw;
+    height: 6vw;
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 10px;
+
+    cursor: pointer;
+}
+
+div.colorbox span{
+    background-color: #fff;
+    color: #000;
+}
+
+div.slidecontainer{
+    width: 50vw;
+}
+
+div.slidecontainer input{
+    width: 100%;
+}
