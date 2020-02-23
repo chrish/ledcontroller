@@ -43,7 +43,6 @@ function setColorSlider(col){
     var g = parseInt(rgb[1]);
     var b = parseInt(rgb[2]);
 
-    console.log(r);
 
     document.getElementById("sr").value = r;
     document.getElementById("sg").value = g;
@@ -52,16 +51,33 @@ function setColorSlider(col){
     postColor([r,g,b]);
 }
 
+function componentToHex(c) {
+    var hex = parseInt(c).toString(16);
+    var ret = hex.length == 1 ? "0" + hex : hex;
+    console.log("Conv col: " + ret);
+    
+    return ret;
+  }
+
+function updateCurrentColor(col){
+    var hex = "#" + componentToHex(col[0]) + componentToHex(col[1]) + componentToHex(col[2]);
+    
+    console.log("Hexcol: " + hex);
+
+    var cc = document.getElementById("activecolor");
+    cc.innerHTML = hex;
+    cc.setAttribute("style", "background-color: " + hex);
+}
+
 
 function postColor(rgbColorCode){
     var intensity = document.getElementById("sa").value;
 
     console.log("intensity: " + intensity);
-
+    updateCurrentColor(rgbColorCode);
     var xhr = new XMLHttpRequest(); 
     xhr.open('POST', host + "/api/colors");
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    console.log("col=" + rgbColorCode);
 
     xhr.send("a=" + intensity + "&r=" + rgbColorCode[0] + "&g=" + rgbColorCode[1] + "&b=" + rgbColorCode[2]);
 }

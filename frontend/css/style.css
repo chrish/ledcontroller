@@ -29,3 +29,8 @@ div.slidecontainer div label {
 div.slidecontainer input{
     width: 85%;
 }
+
+div#activecolor{
+    height: 20px;
+    width: 100%;
+}
