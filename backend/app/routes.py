@@ -19,15 +19,16 @@ def colors():
         la = ledcontroller.LedArray.LedArray()
         return la.GetColors()
     elif request.method =="POST":
+        a = request.values.get("a")
         r = request.values.get("r")
         g = request.values.get("g")
         b = request.values.get("b")
         rgb = (r, g, b)
         
-        print("Color: " + str(r))
         col = "0x" + rgb_to_hex((int(r),int(g),int(b)))
  
         la = ledcontroller.LedArray.LedArray()
+        la.SetIntensity(int(a)/100)
         la.SetSolidColor(col)
         return col
         

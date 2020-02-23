@@ -17,7 +17,7 @@ function printColorSet(colors){
         
         d.setAttribute("style", "background-color: " + hexcolor);
         d.setAttribute("class", "colorbox");
-        d.setAttribute("onclick", "postColorAsHex(this.style.backgroundColor)");
+        d.setAttribute("onclick", "setColorSlider(this.style.backgroundColor)");
 
         ct.appendChild(d);
     }
@@ -37,13 +37,33 @@ function getDefaultColorsRequest(){
     return xhr;
 }
 
+function setColorSlider(col){
+    rgb = col.replace(/[^\d,]/g, '').split(',');
+    var r = parseInt(rgb[0]);
+    var g = parseInt(rgb[1]);
+    var b = parseInt(rgb[2]);
+
+    console.log(r);
+
+    document.getElementById("sr").value = r;
+    document.getElementById("sg").value = g;
+    document.getElementById("sb").value = b;
+
+    postColor([r,g,b]);
+}
+
+
 function postColor(rgbColorCode){
+    var intensity = document.getElementById("sa").value;
+
+    console.log("intensity: " + intensity);
+
     var xhr = new XMLHttpRequest(); 
     xhr.open('POST', host + "/api/colors");
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     console.log("col=" + rgbColorCode);
 
-    xhr.send("r=" + rgbColorCode[0] + "&g=" + rgbColorCode[1] + "&b=" + rgbColorCode[2]);
+    xhr.send("a=" + intensity + "&r=" + rgbColorCode[0] + "&g=" + rgbColorCode[1] + "&b=" + rgbColorCode[2]);
 }
 
 function postColorAsHex(hexColorCode){

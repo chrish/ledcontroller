@@ -23,12 +23,10 @@ class LedArray:
         
 
     def Update(self):
-        print("shown...")
         self._array.show()
 
     def SetIndividualColor(self, idx, color):
         self._array[idx] = color
-        print("indi")
         self.Update()
         
     def SetSolidColor(self, color):
@@ -48,10 +46,8 @@ class LedArray:
 
 
     def SetIntensity(self, intensity):
-        if intensity > 0.6:
-            intensity = 0.6
-        
         self._array.brightness = intensity
+        self.Update()
 
     
     def IterateOverColors(self):
@@ -204,11 +200,6 @@ class LedArray:
         "salmon": 0xFA8072,
         "snow": 0xFFFAFA,
         "rosybrown": 0xBC8F8F,
-        "lightcoral": 0xF08080,
-        "indianred": 0xCD5C5C,
-        "brown": 0xA52A2A,
-        "firebrick": 0xB22222,
-        "red": 0xFF0000,
         "darkred": 0x8B0000,
         "maroon*": 0x800000,
         "white": 0xFFFFFF,
